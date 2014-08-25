@@ -1,25 +1,18 @@
-Spring Autowire Benchmark
-=========================
+Spring ResolvableType Benchmark
+===============================
 
-Benchmark (using the excellent [JMH](http://openjdk.java.net/projects/code-tools/jmh/) harness) showing autowire performance regression between Spring 3.1.4 and 3.2.0:
+Benchmark (using the excellent [JMH](http://openjdk.java.net/projects/code-tools/jmh/) harness) showing ResolvableType performance issue between Spring 3.1.x and later versions based on the same Spring Flex SpringPropertyProxy usage.
 
-#### Spring 3.1.4
-```
-Benchmark                                               Mode   Samples        Score  Score error    Units
-c.g.t.AutowireBenchmark.autowireBean                    avgt         5        1.750        0.037    us/op
-c.g.t.AutowireBenchmark.autowireBeanAppContextAware     avgt         5        1.712        0.085    us/op
-```
+Go to [FLEX-234](https://jira.spring.io/browse/FLEX-234) for more details ...
 
-#### Spring 3.2.0
+#### Spring 3.1.4 and Spring Flex 1.5.2
 ```
-Benchmark                                               Mode   Samples        Score  Score error    Units
-c.g.t.AutowireBenchmark.autowireBean                    avgt         5       45.817        2.787    us/op
-c.g.t.AutowireBenchmark.autowireBeanAppContextAware     avgt         5      394.698       12.102    us/op
+Benchmark                                             Mode   Samples        Score  Score error    Units
+o.s.b.ResolvableTypeBenchmark.resolvableTypeCache     avgt         5     1476,165       91,530    us/op
 ```
 
-#### Spring 4.0.5
+#### Spring 4.1.0.BUILD-SNAPSHOT and Spring Flex 1.6.0-BUILD-SNAPSHOT
 ```
-Benchmark                                               Mode   Samples        Score  Score error    Units
-c.g.t.AutowireBenchmark.autowireBean                    avgt         5       41.374        1.034    us/op
-c.g.t.AutowireBenchmark.autowireBeanAppContextAware     avgt         5      425.888       16.470    us/op
+Benchmark                                             Mode   Samples        Score  Score error    Units
+o.s.b.ResolvableTypeBenchmark.resolvableTypeCache     avgt         5    47520,626     6376,711    us/op
 ```
